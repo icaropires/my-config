@@ -1,0 +1,6 @@
+# Folder with downloaded plugins
+plugged/*
+!plugged/.folder_readme
+
+# Automatic generated
+.netrwhist
