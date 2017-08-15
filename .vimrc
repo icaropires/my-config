@@ -61,7 +61,7 @@ Plug 'vim-syntastic/syntastic'
 	let g:syntastic_auto_loc_list = 1
 	let g:syntastic_check_on_wq = 0
 
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer' }
 	" Needs
 		" CMake
 		" Python compiled with --enable-shared
