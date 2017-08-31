@@ -1,6 +1,7 @@
 "=================================================
 "                   GENERAL
 "=================================================
+set autoread
 set bg=dark
 set nu
 set ruler
@@ -34,7 +35,7 @@ nnoremap <S-Up> :res+1 <CR>
 nnoremap <S-Down> :res-1 <CR>
 nnoremap <S-Right> :vert res+1 <CR>
 nnoremap <S-Left> :vert res-1 <CR>
-nnoremap <F7> :SyntasticCheck <CR>
+nnoremap <F7> :SyntasticToggleMode <CR>
 
 "=================================================
 "                    DIFF
@@ -56,7 +57,6 @@ Plug 'vim-syntastic/syntastic'
 	set statusline+=%{SyntasticStatuslineFlag()}
 	set statusline+=%*
 
-	let g:syntastic_mode_map = {"mode": "passive"}
 	let g:syntastic_always_populate_loc_list = 1
 	let g:syntastic_auto_loc_list = 1
 	let g:syntastic_check_on_wq = 0
@@ -69,6 +69,26 @@ Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer' }
 	let g:ycm_show_diagnostics_ui = 0 " Solves YCM X Syntastic incompability
 
 "-------------------------------------------------
+"                     C++
+"-------------------------------------------------
+
+Plug 'octol/vim-cpp-enhanced-highlight', { 'for': 'cpp' }
+	let g:cpp_class_scope_highlight = 1
+	let g:cpp_class_decl_highlight = 1
+	let g:cpp_experimental_simple_template_highlight = 1 
+	" let g:cpp_experimental_template_highlight = 1 " faster than above but experimental
+	let g:cpp_concepts_highlight = 1
+	let g:cpp_no_function_highlight = 0
+
+Plug 'rhysd/vim-clang-format', { 'for': 'cpp' }
+	let g:clang_format#detect_style_file = 1
+
+" Syntastic - Cpplint
+	let g:syntastic_cpp_compiler_options = ' -std=c++11'
+	let g:syntastic_cpp_checkers=['cpplint']
+	let g:syntastic_cpp_cpplint_exec = "cpplint"
+
+"-------------------------------------------------
 "                   MARKDOWN
 "-------------------------------------------------
 
@@ -78,11 +98,13 @@ Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
 "-------------------------------------------------
 "                  JAVASCRIPT
 "-------------------------------------------------
-Plug 'ternjs/tern_for_vim', {'for': 'javascript'}
-	"Beyond string based conversion for YCM
-	
+
 Plug 'chemzqm/vim-jsx-improve', {'for': 'javascript'}
 	let g:jsx_improve_motion_disable = 1
+
+" Syntastic - Eslint
+let g:syntastic_javascript_checkers=['eslint']
+let g:syntastic_javascript_eslint_exe = '[ -f $(npm bin)/eslint ] && $(npm bin)/eslint || eslint'
 
 " Plug 'pangloss/vim-javascript', {'for': 'javascript'}
 
