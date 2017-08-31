@@ -11,3 +11,9 @@ highlight ColorColumn ctermbg=gray
 setlocal sw=4
 setlocal ts=4
 setlocal et
+
+"=================================================
+"                   MAPPING
+"=================================================
+
+nnoremap <S-F7> :! clear && autopep8 --in-place --aggressive --aggressive % --fix <CR> :e! <CR>

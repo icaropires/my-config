@@ -67,6 +67,11 @@ Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer' }
 		" Python compiled with --enable-shared
 			" $ export PYTHON_CONFIGURE_OPTS="--enable-shared"
 	let g:ycm_show_diagnostics_ui = 0 " Solves YCM X Syntastic incompability
+"-------------------------------------------------
+"                     Python
+"-------------------------------------------------
+" Syntastic
+let g:syntastic_python_checkers=['pylint']
 
 "-------------------------------------------------
 "                     C++
@@ -83,7 +88,7 @@ Plug 'octol/vim-cpp-enhanced-highlight', { 'for': 'cpp' }
 Plug 'rhysd/vim-clang-format', { 'for': 'cpp' }
 	let g:clang_format#detect_style_file = 1
 
-" Syntastic - Cpplint
+" Syntastic
 	let g:syntastic_cpp_compiler_options = ' -std=c++11'
 	let g:syntastic_cpp_checkers=['cpplint']
 	let g:syntastic_cpp_cpplint_exec = "cpplint"
