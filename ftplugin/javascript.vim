@@ -18,4 +18,5 @@ setlocal et
 "                   MAPPING
 "=================================================
 
-nnoremap <S-F7> :! clear && eslint % --fix <CR> :e! <CR>
+nnoremap <S-F3> :! clear && eslint % --fix <CR> :e! <CR>
+nnoremap <F2> :! clear && node % <CR>

@@ -11,3 +11,4 @@ set et
 "                   MAPPING
 "=================================================
 nnoremap <S-F7> :ClangFormat <CR>
+nnoremap <F2> :! clear && g++ -std=c++11 % && ./a.out && rm a.out<CR>
