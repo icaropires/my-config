@@ -7,6 +7,8 @@ set nu
 set ruler
 set showcmd
 set mouse=a
+set nowrapscan
+set hls
 set wildmenu
 set wildmode=list:longest,full
 set ttimeoutlen=10 " <esc> O
@@ -37,9 +39,20 @@ nnoremap <S-Right> :vert res+1 <CR>
 nnoremap <S-Left> :vert res-1 <CR>
 nnoremap <F7> :SyntasticToggleMode <CR>
 
+noremap <F5> gg :DoxLic<CR>:DoxAuthor<CR><Esc>@o 50@p
+
 "=================================================
 "                    DIFF
 "=================================================
+
+"=================================================
+"                   MACROS
+"=================================================
+
+"insert javadoc style comment before next function for cpp file
+let @p = ':/::\w*(.*)\s{k:Doxnj' 
+
+let @o = 'jd2jj^i' 
 
 "=================================================
 "                   PLUGINS
@@ -104,6 +117,21 @@ Plug 'rhysd/vim-clang-format', { 'for': 'cpp' }
 		" Clang
 		" python3-dev
 	let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_global_ycm_extra_conf.py'
+
+Plug 'mrtazz/DoxygenToolkit.vim', { 'for': 'cpp' }
+	let g:DoxygenToolkit_briefTag_pre="Brief Description.  " 
+	let g:DoxygenToolkit_paramTag_pre="@param "
+	let g:DoxygenToolkit_returnTag="@returns   "
+    let g:DoxygenToolkit_fileTag="@file "
+    let g:DoxygenToolkit_authorTag=""
+    let g:DoxygenToolkit_authorName=""
+    let g:DoxygenToolkit_dateTag=""
+    let g:DoxygenToolkit_versionTag=""
+    let g:DoxygenToolkit_versionString=""
+	let g:DoxygenToolkit_licenseTag="Copyright (c) 2017 Wenova - Rise of Conquerors. All rights reserved.This work is licensed under the terms of the MIT license.For a copy, see <https://opensource.org/licenses/MIT>."
+
+" Native DoxyGen
+let g:load_doxygen_syntax=1
 
 "-------------------------------------------------
 "                   MARKDOWN
