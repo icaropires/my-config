@@ -16,5 +16,5 @@ setlocal et
 "                   MAPPING
 "=================================================
 
-nnoremap <F3> :! clear && autopep8 --in-place --aggressive --aggressive % --fix <CR> :e! <CR>
+nnoremap <F3> :! clear && autopep8 --in-place --aggressive % <CR> :e! <CR>
 nnoremap <F2> :! clear && python3 % <CR>
