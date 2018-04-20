@@ -20,4 +20,4 @@ setlocal ts=4
 "                   MAPPING
 "=================================================
 
-nnoremap <F2> :! clear && gcc -std=c11 % && ./a.out && rm a.out<CR>
+nnoremap <S-F7> :! clear && gcc -std=c11 % && ./a.out && rm a.out<CR>
