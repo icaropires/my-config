@@ -1,0 +1,6 @@
+#!/bin/bash
+
+sudo pip3 install pylint
+sudo pip3 install jedi
+npm -g install instant-markdown-d
+# sudo pacman -S clang
