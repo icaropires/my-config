@@ -1,0 +1,29 @@
+[connection]
+id=UNB Wireless
+uuid=aaa0b93b-60f7-444a-b427-47755de675d5
+type=wifi
+permissions=
+
+[wifi]
+mac-address-blacklist=
+mode=infrastructure
+ssid=UNB Wireless
+
+[wifi-security]
+key-mgmt=wpa-eap
+
+[802-1x]
+anonymous-identity=<matricula>
+eap=peap;
+identity=<matricula>
+password=<senha MW>
+phase2-auth=mschapv2
+
+[ipv4]
+dns-search=
+method=auto
+
+[ipv6]
+addr-gen-mode=stable-privacy
+dns-search=
+method=auto
