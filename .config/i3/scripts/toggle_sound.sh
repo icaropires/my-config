@@ -1,9 +1,9 @@
 #!/bin/sh
 
-if amixer -c 1 sget Master | grep -q off; then
-  amixer -c 1 sset Master unmute
-  amixer -c 1 sset Headphone unmute
-  amixer -c 1 sset Speaker unmute
+if amixer sget Master | grep -q off; then
+  amixer sset Master unmute
+  amixer sset Headphone unmute
+  amixer sset Speaker unmute
 else
-  amixer -c 1 sset Master toggle
+  amixer sset Master toggle
 fi
