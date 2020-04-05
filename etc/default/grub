@@ -1,0 +1,9 @@
+GRUB_TIMEOUT=5
+GRUB_DISTRIBUTOR="$(sed 's, release .*$,,g' /etc/system-release)"
+GRUB_DEFAULT=saved
+GRUB_DISABLE_SUBMENU=true
+GRUB_TERMINAL_OUTPUT="console"
+# GRUB_CMDLINE_LINUX="resume=/dev/mapper/fedora_icaro--pc-swap rd.lvm.lv=fedora_icaro-pc/root rd.lvm.lv=fedora_icaro-pc/swap rhgb quiet systemd.unified_cgroup_hierarchy=0 nvidia-drm.modeset=1 modprobe.blacklist=nouveau rd.driver.blacklist=nouveau"
+GRUB_DISABLE_RECOVERY="true"
+GRUB_ENABLE_BLSCFG=true
+GRUB_CMDLINE_LINUX="resume=/dev/mapper/fedora_icaro--pc-swap rd.lvm.lv=fedora_icaro-pc/root rd.lvm.lv=fedora_icaro-pc/swap rhgb quiet systemd.unified_cgroup_hierarchy=0 nvidia-drm.modeset=1 modprobe.blacklist=nouveau rd.driver.blacklist=nouveau"
