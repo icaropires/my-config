@@ -6,16 +6,20 @@ set number
 set bg=dark
 set ruler
 set showcmd
-set wildmenu
-set wildmode=list:longest,full
 set nowrap
 set ttimeoutlen=10 " <esc> O
 set expandtab
+set nohls
+let g:netrw_banner=0
+filetype plugin on
 
-if has('nvim')
-else
-    colorscheme my
-endif
+set splitright
+set splitbelow
+
+set wildmenu
+set wildmode=longest:full,full
+set wildignorecase
+set wildignore+=env/*,venv/*,*.jpg,*.pdf,*.png,.git/*
 
 "=================================================
 "                  INDENTATION
@@ -53,15 +57,18 @@ Plug 'w0rp/ale'
     \   'cpp': ['clang', 'gcc'],
     \}
 	let g:airline#extensions#ale#enabled = 1
+    let g:ale_enabled = 0
+
 
 " Deoplete
 if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins', 'for': 'go'}
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
   Plug 'Shougo/deoplete.nvim'
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
+Plug 'zchee/deoplete-jedi'
 let g:deoplete#enable_at_startup = 1
 autocmd CompleteDone * silent! pclose! " Autoclose preview window
 
@@ -70,12 +77,14 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'chr4/nginx.vim'
 " Plug 'vim-airline/vim-airline'
 
+Plug 'sakhnik/nvim-gdb', { 'do': ':!./install.sh \| UpdateRemotePlugins' }
+
 "-------------------------------------------------
 "                    PYTHON
 "-------------------------------------------------
 
 " Plug 'python-mode/python-mode', {'for': 'python'}
-	let g:pymode_python = 'python3'	
+"	let g:pymode_python = 'python3'	
 
 " ALE
 autocmd FileType python let g:ale_python_pylint_options =
@@ -84,8 +93,12 @@ autocmd FileType python let g:ale_python_pylint_options =
 
 let g:ale_python_pylint_options = '--load-plugins pylint_django'
 
+" Jedi
+Plug 'davidhalter/jedi-vim' " slow
+let g:jedi#completions_enabled = 0  " Avoid conflict
+
 " Deoplete
-Plug 'zchee/deoplete-jedi'
+
 
 "-------------------------------------------------
 "                    ELIXIR
