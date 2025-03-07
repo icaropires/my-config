@@ -110,35 +110,11 @@ Plug 'elixir-editors/vim-elixir'
 "-------------------------------------------------
 
 "-------------------------------------------------
-"                    ELM
-"-------------------------------------------------
-Plug 'elmcast/elm-vim'
-	let g:ycm_semantic_triggers = {
-		 \ 'elm' : ['.'],
-		 \}
-let g:elm_format_autosave = 1
-
-command! ElmFormat call elm#Format()
-command! -nargs=? -complete=file ElmMake call elm#Make(<f-args>)
-
-" Deoplete
-Plug 'pbogut/deoplete-elm'
-
-"-------------------------------------------------
 "                    GO
 "-------------------------------------------------
 Plug 'mdempsky/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
 Plug 'zchee/deoplete-go', { 'do': 'make'}
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-
-"-------------------------------------------------
-"                    HASKELL
-"-------------------------------------------------
-Plug 'eagletmt/neco-ghc'
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': './install.sh'
-    \ }
 
 "-------------------------------------------------
 "                   MARKDOWN
